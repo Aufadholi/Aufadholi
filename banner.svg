@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1000" height="200" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#00d4ff">
+        <animate attributeName="stop-color" values="#00d4ff;#7b61ff;#00d4ff" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#7b61ff">
+        <animate attributeName="stop-color" values="#7b61ff;#ff7b9c;#7b61ff" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ff7b9c">
+        <animate attributeName="stop-color" values="#ff7b9c;#00d4ff;#ff7b9c" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40">
+      <rect width="40" height="40" fill="rgba(255,255,255,0.02)"/>
+      <path d="M0 40 L40 0" stroke="rgba(255,255,255,0.04)" stroke-width="6"/>
+    </pattern>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1000" height="200" fill="url(#g)"/>
+  <rect x="0" y="0" width="1000" height="200" fill="url(#p)" opacity="0.6"/>
+
+  <!-- animated floating circles -->
+  <g opacity="0.18" filter="url(#glow)">
+    <circle cx="120" cy="50" r="36">
+      <animate attributeName="cx" values="80;140;120" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="40;70;50" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="860" cy="130" r="48">
+      <animate attributeName="cx" values="900;820;860" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="120;150;130" dur="12s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- main text with type-like animation -->
+  <g transform="translate(60,120)">
+    <text id="t" x="0" y="0" font-family="Verdana, Geneva, sans-serif" font-size="42" font-weight="700" fill="#ffffff" letter-spacing="1">
+      Hi, I'm <tspan id="name" fill="white">Opak</tspan>
+    </text>
+
+    <!-- cursor blink -->
+    <rect x="225" y="-32" width="8" height="44" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- subtext sliding in -->
+    <text x="0" y="40" font-family="Verdana, Geneva, sans-serif" font-size="18" fill="#f3f3f3" opacity="0">
+      <tspan id="role">Frontend • UI/UX • 3D</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="0.6s" dur="0.8s" fill="freeze"/>
+      <animate attributeName="x" from="-20" to="0" begin="0.6s" dur="0.9s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- animated progress-like bars -->
+  <g transform="translate(640,50)">
+    <rect x="0" y="0" width="300" height="18" rx="9" fill="rgba(255,255,255,0.12)"/>
+    <rect x="-300" y="0" width="300" height="18" rx="9" fill="rgba(255,255,255,0.18)">
+      <animate attributeName="x" values="-300;0;-300" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="35" font-family="Verdana" font-size="12" fill="#ffffff">Open source — building neat things</text>
+  </g>
+
+  <!-- small footer -->
+  <text x="20" y="190" font-family="Verdana" font-size="11" fill="#ffffff" opacity="0.7">
+    ✦ Animated profile banner — drop `banner.svg` in repo and reference it in README
+  </text>
+</svg>
