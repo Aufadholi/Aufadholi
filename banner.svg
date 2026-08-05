@@ -1,168 +1,983 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="1000" height="200" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <!-- space nebula gradient -->
-    <radialGradient id="nebula" cx="30%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#0f172a">
-        <animate attributeName="stop-color" values="#0f172a;#1e293b;#0f172a" dur="8s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="40%" stop-color="#1e3a8a">
-        <animate attributeName="stop-color" values="#1e3a8a;#3b82f6;#1e3a8a" dur="10s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#020617">
-        <animate attributeName="stop-color" values="#020617;#0f172a;#020617" dur="12s" repeatCount="indefinite"/>
-      </stop>
-    </radialGradient>
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <!-- stars pattern -->
-    <pattern id="stars" patternUnits="userSpaceOnUse" width="100" height="100">
-      <rect width="100" height="100" fill="transparent"/>
-      <circle cx="20" cy="30" r="1" fill="#ffffff" opacity="0.8">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="70" cy="10" r="0.5" fill="#60a5fa" opacity="0.9">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="50" cy="80" r="1.5" fill="#93c5fd" opacity="0.7">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="10" cy="70" r="0.8" fill="#3b82f6" opacity="0.6">
-        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="5s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="90" cy="50" r="0.6" fill="#1d4ed8" opacity="0.8">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite"/>
-      </circle>
-    </pattern>
+<svg
+    width="1000"
+    height="200"
+    viewBox="0 0 1000 200"
+    xmlns="http://www.w3.org/2000/svg">
 
-    <!-- cosmic dust -->
-    <pattern id="dust" patternUnits="userSpaceOnUse" width="80" height="80">
-      <rect width="80" height="80" fill="transparent"/>
-      <ellipse cx="30" cy="20" rx="15" ry="3" fill="rgba(59, 130, 246, 0.1)" transform="rotate(45 30 20)">
-        <animateTransform attributeName="transform" type="rotate" values="45 30 20;90 30 20;45 30 20" dur="15s" repeatCount="indefinite"/>
-      </ellipse>
-      <ellipse cx="60" cy="60" rx="20" ry="2" fill="rgba(147, 197, 253, 0.08)" transform="rotate(-30 60 60)">
-        <animateTransform attributeName="transform" type="rotate" values="-30 60 60;15 60 60;-30 60 60" dur="20s" repeatCount="indefinite"/>
-      </ellipse>
-    </pattern>
+<defs>
 
-    <!-- planet glow -->
-    <radialGradient id="planetGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="rgba(59, 130, 246, 0.8)"/>
-      <stop offset="100%" stop-color="rgba(59, 130, 246, 0)"/>
-    </radialGradient>
+<!-- ============================= -->
+<!-- COLORS -->
+<!-- ============================= -->
 
-    <!-- enhanced glow filter -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#050816"/>
+    <stop offset="45%" stop-color="#0B1120"/>
+    <stop offset="100%" stop-color="#020617"/>
+</linearGradient>
+
+<linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#8B5CF6"/>
+    <stop offset="50%" stop-color="#3B82F6"/>
+    <stop offset="100%" stop-color="#22D3EE"/>
+</linearGradient>
+
+<linearGradient id="borderGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%">
+
+    <stop offset="0%" stop-color="#3B82F6"/>
+    <stop offset="50%" stop-color="#8B5CF6"/>
+    <stop offset="100%" stop-color="#22D3EE"/>
+
+</linearGradient>
+
+<!-- ============================= -->
+<!-- GLASS -->
+<!-- ============================= -->
+
+<filter id="glassBlur">
+
+    <feGaussianBlur
+        stdDeviation="12"
+        result="blur"/>
+
+</filter>
+
+<filter id="softGlow">
+
+    <feGaussianBlur
+        stdDeviation="8"
+        result="blur"/>
+
+    <feMerge>
+
+        <feMergeNode in="blur"/>
+
         <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
 
-    <!-- shooting star glow -->
-    <filter id="starGlow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
+    </feMerge>
+
+</filter>
+
+<filter id="strongGlow">
+
+    <feGaussianBlur
+        stdDeviation="20"
+        result="blur"/>
+
+    <feMerge>
+
+        <feMergeNode in="blur"/>
+
         <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
 
-  <!-- space background -->
-  <rect x="0" y="0" width="1000" height="200" fill="url(#nebula)"/>
-  <rect x="0" y="0" width="1000" height="200" fill="url(#stars)" opacity="1"/>
-  <rect x="0" y="0" width="1000" height="200" fill="url(#dust)" opacity="0.7"/>
+    </feMerge>
 
-  <!-- animated planets -->
-  <g opacity="0.3" filter="url(#glow)">
-    <!-- planet 1 -->
-    <circle cx="150" cy="60" r="25" fill="url(#planetGlow)">
-      <animate attributeName="cx" values="120;180;150" dur="20s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="50;80;60" dur="15s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="20;30;25" dur="8s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- planet 2 -->
-    <circle cx="850" cy="140" r="35" fill="#1e3a8a" opacity="0.4">
-      <animate attributeName="cx" values="880;820;850" dur="25s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="130;160;140" dur="18s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- planet rings -->
-    <ellipse cx="850" cy="140" rx="50" ry="8" fill="none" stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" opacity="0.6">
-      <animate attributeName="cx" values="880;820;850" dur="25s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="130;160;140" dur="18s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="rotate" values="0 850 140;360 850 140" dur="12s" repeatCount="indefinite"/>
-    </ellipse>
-  </g>
+</filter>
 
-  <!-- shooting stars -->
-  <g filter="url(#starGlow)">
-    <line x1="-50" y1="30" x2="50" y2="50" stroke="#93c5fd" stroke-width="2" opacity="0">
-      <animate attributeName="x1" values="-50;950;-50" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="x2" values="50;1050;50" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="6s" repeatCount="indefinite"/>
-    </line>
-    
-    <line x1="-80" y1="160" x2="20" y2="180" stroke="#60a5fa" stroke-width="1.5" opacity="0">
-      <animate attributeName="x1" values="-80;920;-80" dur="8s" begin="2s" repeatCount="indefinite"/>
-      <animate attributeName="x2" values="20;1020;20" dur="8s" begin="2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.8;0" dur="8s" begin="2s" repeatCount="indefinite"/>
-    </line>
-    
-    <line x1="-30" y1="100" x2="70" y2="120" stroke="#3b82f6" stroke-width="1" opacity="0">
-      <animate attributeName="x1" values="-30;970;-30" dur="10s" begin="4s" repeatCount="indefinite"/>
-      <animate attributeName="x2" values="70;1070;70" dur="10s" begin="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.6;0" dur="10s" begin="4s" repeatCount="indefinite"/>
-    </line>
-  </g>
+<!-- ============================= -->
+<!-- SHADOW -->
+<!-- ============================= -->
 
-  <!-- main text with character-by-character typing animation -->
-  <g transform="translate(60,120)">
-    <!-- Individual characters with delayed reveal -->
-    <text id="t" x="0" y="0" font-family="Verdana, Geneva, sans-serif" font-size="42" font-weight="700" fill="#ffffff" letter-spacing="1">
-      <tspan opacity="0">H<animate attributeName="opacity" values="0;1" dur="0.1s" begin="0.2s" fill="freeze"/></tspan><tspan opacity="0">i<animate attributeName="opacity" values="0;1" dur="0.1s" begin="0.4s" fill="freeze"/></tspan><tspan opacity="0">,<animate attributeName="opacity" values="0;1" dur="0.1s" begin="0.6s" fill="freeze"/></tspan><tspan opacity="0"> <animate attributeName="opacity" values="0;1" dur="0.1s" begin="0.8s" fill="freeze"/></tspan><tspan opacity="0">I<animate attributeName="opacity" values="0;1" dur="0.1s" begin="1.0s" fill="freeze"/></tspan><tspan opacity="0">'<animate attributeName="opacity" values="0;1" dur="0.1s" begin="1.2s" fill="freeze"/></tspan><tspan opacity="0">m<animate attributeName="opacity" values="0;1" dur="0.1s" begin="1.4s" fill="freeze"/></tspan><tspan opacity="0"> <animate attributeName="opacity" values="0;1" dur="0.1s" begin="1.6s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">A<animate attributeName="opacity" values="0;1" dur="0.1s" begin="1.8s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">u<animate attributeName="opacity" values="0;1" dur="0.1s" begin="2.0s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">f<animate attributeName="opacity" values="0;1" dur="0.1s" begin="2.2s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">a<animate attributeName="opacity" values="0;1" dur="0.1s" begin="2.4s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0"> <animate attributeName="opacity" values="0;1" dur="0.1s" begin="2.6s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">F<animate attributeName="opacity" values="0;1" dur="0.1s" begin="2.8s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">a<animate attributeName="opacity" values="0;1" dur="0.1s" begin="3.0s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">d<animate attributeName="opacity" values="0;1" dur="0.1s" begin="3.2s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">h<animate attributeName="opacity" values="0;1" dur="0.1s" begin="3.4s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">o<animate attributeName="opacity" values="0;1" dur="0.1s" begin="3.6s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">l<animate attributeName="opacity" values="0;1" dur="0.1s" begin="3.8s" fill="freeze"/></tspan><tspan fill="#93c5fd" opacity="0">i<animate attributeName="opacity" values="0;1" dur="0.1s" begin="4.0s" fill="freeze"/></tspan>
-    </text>
+<filter id="shadow">
 
-    <!-- animated typing cursor that follows each character precisely -->
-    <rect x="0" y="-32" width="3" height="44" fill="#60a5fa">
-      <animate attributeName="x" values="0;28;42;54;78;96;120;144;168;192;216;240;264;288;324;348;372;396;420;444;468" 
-               dur="4.0s" begin="0.2s" fill="freeze" 
-               keyTimes="0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"/>
-      <animate attributeName="opacity" values="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;0" 
-               dur="4.0s" begin="0.2s" fill="freeze"
-               keyTimes="0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.9;0.95;1"/>
-      <animate attributeName="opacity" values="1;0;1" dur="0.6s" begin="4.2s" repeatCount="indefinite"/>
-    </rect>
+    <feDropShadow
+        dx="0"
+        dy="12"
+        stdDeviation="12"
+        flood-color="#000000"
+        flood-opacity="0.35"/>
 
-    <!-- subtext with delayed typing animation -->
-    <text x="0" y="40" font-family="Verdana, Geneva, sans-serif" font-size="18" fill="#dbeafe" opacity="0">
-      <tspan id="role">Frontend Developer • React • Next.js • Laravel • Kotlin</tspan>
-      <animate attributeName="opacity" from="0" to="1" begin="4.5s" dur="0.5s" fill="freeze"/>
-      <animate attributeName="x" from="-20" to="0" begin="4.5s" dur="0.6s" fill="freeze"/>
-    </text>
-  </g>
+</filter>
 
-  <!-- animated progress-like bars -->
-  <g transform="translate(640,50)">
-    <rect x="0" y="0" width="300" height="18" rx="9" fill="rgba(15, 23, 42, 0.6)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1"/>
-    <rect x="-300" y="0" width="300" height="18" rx="9" fill="rgba(59, 130, 246, 0.4)">
-      <animate attributeName="x" values="-300;0;-300" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <text x="0" y="35" font-family="Verdana" font-size="12" fill="#dbeafe">🌌 Exploring the cosmic depths of code</text>
-  </g>
+<!-- ============================= -->
+<!-- GRID -->
+<!-- ============================= -->
 
-  
+<pattern
+    id="grid"
+    width="40"
+    height="40"
+    patternUnits="userSpaceOnUse">
 
-  <g transform="translate(620,58)">
-    <rect x="0" y="0" width="320" height="100" rx="12" fill="rgba(15,23,42,0.55)" stroke="#3b82f6"/>
-    <text x="18" y="24" font-size="16" fill="#93c5fd" font-family="Verdana" font-weight="700">Tech Stack</text>
-    <text x="18" y="48" font-size="13" fill="#ffffff" font-family="Verdana">⚛ React   ▲ Next.js   🎨 Tailwind CSS</text>
-    <text x="18" y="68" font-size="13" fill="#ffffff" font-family="Verdana">🔺 Laravel   🟢 Express   🐘 PHP</text>
-    <text x="18" y="88" font-size="13" fill="#ffffff" font-family="Verdana">🟣 Kotlin   📱 Jetpack Compose   🐳 Docker</text>
-  </g>
+    <path
+        d="M40 0H0V40"
+        fill="none"
+        stroke="#162033"
+        stroke-width="1"/>
+
+</pattern>
+
+<!-- ============================= -->
+<!-- DOTS -->
+<!-- ============================= -->
+
+<pattern
+    id="dots"
+    width="20"
+    height="20"
+    patternUnits="userSpaceOnUse">
+
+    <circle
+        cx="2"
+        cy="2"
+        r="1"
+        fill="#1E293B"/>
+
+</pattern>
+
+</defs>
+
+<!-- ================================================= -->
+<!-- BACKGROUND -->
+<!-- ================================================= -->
+
+<rect
+    width="1000"
+    height="200"
+    fill="url(#bg)"/>
+
+<!-- subtle grid -->
+
+<rect
+    width="1000"
+    height="200"
+    fill="url(#grid)"
+    opacity=".15"/>
+
+<!-- ================================================= -->
+<!-- DECORATIONS -->
+<!-- ================================================= -->
+
+<circle
+    cx="870"
+    cy="30"
+    r="180"
+    fill="#2563EB"
+    opacity=".05"
+    filter="url(#strongGlow)"/>
+
+<circle
+    cx="120"
+    cy="170"
+    r="120"
+    fill="#7C3AED"
+    opacity=".06"
+    filter="url(#strongGlow)"/>
+
+<circle
+    cx="550"
+    cy="-50"
+    r="100"
+    fill="#06B6D4"
+    opacity=".05"
+    filter="url(#strongGlow)"/>
+
+<!-- ================================================= -->
+<!-- OUTER BORDER -->
+<!-- ================================================= -->
+
+<rect
+    x="8"
+    y="8"
+    rx="20"
+    width="984"
+    height="184"
+    fill="none"
+    stroke="url(#borderGradient)"
+    stroke-opacity=".25"
+    stroke-width="1"/>
+
+<!-- ================================================= -->
+<!-- GLASS PANELS -->
+<!-- ================================================= -->
+
+<!-- LEFT PANEL -->
+
+<rect
+    x="40"
+    y="24"
+    width="500"
+    height="152"
+    rx="18"
+    fill="#0F172A"
+    fill-opacity=".28"
+    stroke="#334155"
+    stroke-opacity=".35"/>
+
+<!-- RIGHT PANEL -->
+
+<rect
+    x="565"
+    y="24"
+    width="395"
+    height="152"
+    rx="18"
+    fill="#0F172A"
+    fill-opacity=".28"
+    stroke="#334155"
+    stroke-opacity=".35"/>
+
+<!-- ================================================= -->
+<!-- GLOW LINE -->
+<!-- ================================================= -->
+
+<line
+    x1="560"
+    y1="35"
+    x2="560"
+    y2="165"
+    stroke="url(#primary)"
+    stroke-opacity=".30"
+    stroke-width="1"/>
+
+<!-- ================================================= -->
+<!-- FLOATING LIGHTS -->
+<!-- ================================================= -->
+
+<circle
+    cx="90"
+    cy="35"
+    r="2"
+    fill="#60A5FA">
+
+    <animate
+        attributeName="opacity"
+        values="0.3;1;0.3"
+        dur="4s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<circle
+    cx="760"
+    cy="60"
+    r="2"
+    fill="#A855F7">
+
+    <animate
+        attributeName="opacity"
+        values="1;0.2;1"
+        dur="5s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<circle
+    cx="920"
+    cy="150"
+    r="2"
+    fill="#22D3EE">
+
+    <animate
+        attributeName="opacity"
+        values="0.2;1;0.2"
+        dur="6s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<!-- ================================================= -->
+<!-- SHOOTING LINE -->
+<!-- ================================================= -->
+
+<line
+    x1="700"
+    y1="20"
+    x2="760"
+    y2="60"
+    stroke="url(#primary)"
+    stroke-width="2"
+    opacity=".7">
+
+    <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="-20 -10;20 15;-20 -10"
+        dur="7s"
+        repeatCount="indefinite"/>
+     <!-- ================================================= -->
+<!-- LEFT PANEL CONTENT -->
+<!-- ================================================= -->
+
+<!-- Greeting -->
+
+<text
+    x="70"
+    y="58"
+    font-family="Inter,Segoe UI,Verdana,sans-serif"
+    font-size="16"
+    fill="#94A3B8">
+
+    👋 Hi, I'm
+
+</text>
+
+<!-- Name -->
+
+<text
+    x="70"
+    y="92"
+    font-family="Inter,Segoe UI,Verdana,sans-serif"
+    font-size="34"
+    font-weight="700"
+    fill="url(#primary)"
+    filter="url(#softGlow)">
+
+    Aufa Fadholi
+
+</text>
+
+<!-- Role -->
+
+<text
+    x="70"
+    y="122"
+    font-family="Inter,Segoe UI,Verdana,sans-serif"
+    font-size="18"
+    font-weight="600"
+    fill="#E2E8F0">
+
+    Frontend Developer
+
+</text>
+
+<!-- Description -->
+
+<text
+    x="70"
+    y="146"
+    font-family="Inter,Segoe UI,Verdana,sans-serif"
+    font-size="13"
+    fill="#94A3B8">
+
+    Building performant Web &amp; Mobile Applications
+
+</text>
+
+<!-- ================================================= -->
+<!-- STATUS BADGE -->
+<!-- ================================================= -->
+
+<rect
+    x="70"
+    y="158"
+    width="138"
+    height="24"
+    rx="12"
+    fill="#052E16"
+    stroke="#22C55E"
+    stroke-opacity=".5"/>
+
+<circle
+    cx="84"
+    cy="170"
+    r="4"
+    fill="#22C55E">
+
+    <animate
+        attributeName="opacity"
+        values="1;.3;1"
+        dur="2s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<text
+    x="95"
+    y="174"
+    font-family="Inter,Segoe UI"
+    font-size="11"
+    fill="#BBF7D0">
+
+    Open to Work
+
+</text>
+
+<!-- ================================================= -->
+<!-- CODE CARD -->
+<!-- ================================================= -->
+
+<g filter="url(#shadow)">
+
+<rect
+    x="285"
+    y="48"
+    width="220"
+    height="108"
+    rx="14"
+    fill="#0B1220"
+    stroke="#334155"/>
+
+</g>
+
+<!-- Window Buttons -->
+
+<circle cx="302" cy="63" r="4" fill="#EF4444"/>
+
+<circle cx="317" cy="63" r="4" fill="#F59E0B"/>
+
+<circle cx="332" cy="63" r="4" fill="#22C55E"/>
+
+<!-- Divider -->
+
+<line
+
+    x1="286"
+    y1="76"
+
+    x2="504"
+    y2="76"
+
+    stroke="#1E293B"/>
+
+<!-- Code -->
+
+<text
+    x="300"
+    y="98"
+    font-family="JetBrains Mono,Consolas,monospace"
+    font-size="11"
+    fill="#C084FC">
+
+const
+
+</text>
+
+<text
+    x="336"
+    y="98"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#F8FAFC">
+
+developer = {
+
+</text>
+
+<text
+    x="312"
+    y="116"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#38BDF8">
+
+role
+
+</text>
+
+<text
+    x="348"
+    y="116"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#F8FAFC">
+
+: "Frontend",
+
+</text>
+
+<text
+    x="312"
+    y="132"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#38BDF8">
+
+focus
+
+</text>
+
+<text
+    x="348"
+    y="132"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#F8FAFC">
+
+: React,
+
+</text>
+
+<text
+    x="312"
+    y="148"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#38BDF8">
+
+mobile
+
+</text>
+
+<text
+    x="356"
+    y="148"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#F8FAFC">
+
+: Kotlin
+
+</text>
+
+<text
+    x="300"
+    y="164"
+    font-family="JetBrains Mono"
+    font-size="11"
+    fill="#F8FAFC">
+
+}
+
+</text>
+
+<!-- ================================================= -->
+<!-- SOCIAL ICON PLACEHOLDER -->
+<!-- ================================================= -->
+
+<g transform="translate(70 188)">
+
+<circle cx="0" cy="0" r="2" fill="#3B82F6"/>
+
+<circle cx="18" cy="0" r="2" fill="#8B5CF6"/>
+
+<circle cx="36" cy="0" r="2" fill="#22D3EE"/>
+
+</g>
+
+</line>
+     <!-- ================================================= -->
+<!-- RIGHT PANEL -->
+<!-- ================================================= -->
+
+<text
+    x="595"
+    y="50"
+    font-family="Inter,Segoe UI,Verdana,sans-serif"
+    font-size="20"
+    font-weight="700"
+    fill="#F8FAFC">
+
+    Tech Stack
+
+</text>
+
+<text
+    x="595"
+    y="68"
+    font-family="Inter"
+    font-size="12"
+    fill="#64748B">
+
+    Technologies I use to build modern applications
+
+</text>
+
+<!-- ================================================= -->
+<!-- TECH CARD -->
+<!-- ================================================= -->
+
+<rect
+    x="590"
+    y="82"
+    width="340"
+    height="82"
+    rx="16"
+    fill="#0F172A"
+    fill-opacity=".45"
+    stroke="#334155"/>
+
+<!-- ================================================= -->
+<!-- ITEM TEMPLATE -->
+<!-- ================================================= -->
+
+<!-- ROW 1 -->
+
+<!-- React -->
+
+<circle cx="615" cy="102" r="7" fill="#61DAFB"/>
+
+<text
+    x="628"
+    y="106"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+React
+
+</text>
+
+<!-- Next -->
+
+<circle cx="705" cy="102" r="7" fill="#FFFFFF"/>
+
+<text
+    x="718"
+    y="106"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Next.js
+
+</text>
+
+<!-- Tailwind -->
+
+<circle cx="800" cy="102" r="7" fill="#38BDF8"/>
+
+<text
+    x="813"
+    y="106"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Tailwind
+
+</text>
+
+<!-- Laravel -->
+
+<circle cx="895" cy="102" r="7" fill="#FF2D20"/>
+
+<text
+    x="908"
+    y="106"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Laravel
+
+</text>
+
+<!-- ROW 2 -->
+
+<!-- Express -->
+
+<circle cx="615" cy="126" r="7" fill="#94A3B8"/>
+
+<text
+    x="628"
+    y="130"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Express
+
+</text>
+
+<!-- Kotlin -->
+
+<circle cx="705" cy="126" r="7" fill="#7C3AED"/>
+
+<text
+    x="718"
+    y="130"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Kotlin
+
+</text>
+
+<!-- Compose -->
+
+<circle cx="800" cy="126" r="7" fill="#4285F4"/>
+
+<text
+    x="813"
+    y="130"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Compose
+
+</text>
+
+<!-- Docker -->
+
+<circle cx="895" cy="126" r="7" fill="#2496ED"/>
+
+<text
+    x="908"
+    y="130"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Docker
+
+</text>
+
+<!-- ROW 3 -->
+
+<!-- Git -->
+
+<circle cx="615" cy="150" r="7" fill="#F05032"/>
+
+<text
+    x="628"
+    y="154"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Git
+
+</text>
+
+<!-- Figma -->
+
+<circle cx="705" cy="150" r="7" fill="#A259FF"/>
+
+<text
+    x="718"
+    y="154"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+Figma
+
+</text>
+
+<!-- MySQL -->
+
+<circle cx="800" cy="150" r="7" fill="#00758F"/>
+
+<text
+    x="813"
+    y="154"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+MySQL
+
+</text>
+
+<!-- REST -->
+
+<circle cx="895" cy="150" r="7" fill="#22C55E"/>
+
+<text
+    x="908"
+    y="154"
+    font-family="Inter"
+    font-size="12"
+    fill="#E2E8F0">
+
+REST
+
+</text>
+
+<!-- ================================================= -->
+<!-- SMALL DECORATION -->
+<!-- ================================================= -->
+
+<line
+    x1="590"
+    y1="74"
+    x2="930"
+    y2="74"
+    stroke="url(#primary)"
+    stroke-opacity=".15"/>
+
+<circle
+    cx="920"
+    cy="42"
+    r="3"
+    fill="#3B82F6">
+
+    <animate
+        attributeName="opacity"
+        values=".2;1;.2"
+        dur="3s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<circle
+    cx="900"
+    cy="42"
+    r="3"
+    fill="#8B5CF6">
+
+    <animate
+        attributeName="opacity"
+        values="1;.3;1"
+        dur="4s"
+        repeatCount="indefinite"/>
+
+</circle>
+     <!-- ================================================= -->
+<!-- AMBIENT GLOW -->
+<!-- ================================================= -->
+
+<ellipse
+    cx="500"
+    cy="100"
+    rx="320"
+    ry="70"
+    fill="url(#primary)"
+    opacity=".04"
+    filter="url(#strongGlow)">
+
+    <animate
+        attributeName="opacity"
+        values=".03;.06;.03"
+        dur="8s"
+        repeatCount="indefinite"/>
+
+</ellipse>
+
+<!-- ================================================= -->
+<!-- TOP RIGHT BADGE -->
+<!-- ================================================= -->
+
+<rect
+    x="846"
+    y="18"
+    width="118"
+    height="24"
+    rx="12"
+    fill="#0B1220"
+    stroke="#334155"/>
+
+<circle
+    cx="860"
+    cy="30"
+    r="4"
+    fill="#22C55E">
+
+    <animate
+        attributeName="opacity"
+        values="1;.3;1"
+        dur="2s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<text
+    x="872"
+    y="34"
+    font-family="Inter"
+    font-size="11"
+    fill="#E2E8F0">
+
+Available for Work
+
+</text>
+
+<!-- ================================================= -->
+<!-- ACCENT LINES -->
+<!-- ================================================= -->
+
+<line
+    x1="40"
+    y1="24"
+    x2="540"
+    y2="24"
+    stroke="url(#primary)"
+    stroke-width="2"
+    opacity=".25"/>
+
+<line
+    x1="565"
+    y1="24"
+    x2="960"
+    y2="24"
+    stroke="url(#primary)"
+    stroke-width="2"
+    opacity=".25"/>
+
+<!-- ================================================= -->
+<!-- FLOATING PARTICLES -->
+<!-- ================================================= -->
+
+<circle
+    cx="160"
+    cy="38"
+    r="1.5"
+    fill="#3B82F6">
+
+    <animate
+        attributeName="cy"
+        values="38;30;38"
+        dur="5s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<circle
+    cx="690"
+    cy="172"
+    r="2"
+    fill="#8B5CF6">
+
+    <animate
+        attributeName="cy"
+        values="172;165;172"
+        dur="6s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<circle
+    cx="944"
+    cy="92"
+    r="1.5"
+    fill="#22D3EE">
+
+    <animate
+        attributeName="cy"
+        values="92;84;92"
+        dur="4s"
+        repeatCount="indefinite"/>
+
+</circle>
+
+<!-- ================================================= -->
+<!-- BOTTOM SIGNATURE -->
+<!-- ================================================= -->
+
+<text
+    x="40"
+    y="194"
+    font-family="Inter"
+    font-size="10"
+    fill="#475569">
+
+Designed &amp; Animated with SVG • © Aufa Fadholi
+
+</text>
+
+<!-- ================================================= -->
+<!-- SUBTLE BORDER GLOW -->
+<!-- ================================================= -->
+
+<rect
+    x="8"
+    y="8"
+    width="984"
+    height="184"
+    rx="20"
+    fill="none"
+    stroke="url(#primary)"
+    stroke-opacity=".08"
+    stroke-width="4"
+    filter="url(#softGlow)"/>
 
 </svg>
