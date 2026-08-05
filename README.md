@@ -1,9 +1,90 @@
-## WELL-Come........ 👋
-## FEEL FREE TO SEE
+<div align="center">
 
+# Hi there, I'm Aufa Fadholi 👋
 
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=24&duration=3500&pause=1200&color=3B82F6&center=true&vCenter=true&repeat=true&width=650&lines=Frontend+Developer;Building+Modern+Web+Applications;React+%7C+Next.js+%7C+Laravel;Currently+Learning+Kotlin+%26+Jetpack+Compose" />
 
-<!--
-**Aufadholi/Aufadholi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-...
--->
+<p>
+Computer Engineering Graduate from Dian Nuswantoro University<br/>
+Passionate about crafting performant, scalable, and user-friendly applications.
+</p>
+
+</div>
+
+---
+
+## 🚀 About Me
+
+- 🎯 Focus on **Frontend Development and Android Development**
+- 🌱 Currently learning **Android Development with Kotlin & Jetpack Compose**
+- 💡 Interested in **UI/UX**, **Web Performance**, and **Software Architecture**
+- 📫 Reach me: **your-email@example.com**
+- 🌐 Portfolio: **https://your-portfolio.com**
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+<p>
+<img src="https://skillicons.dev/icons?i=react,nextjs,ts,js,tailwind,vite" />
+</p>
+
+### Backend
+
+<p>
+<img src="https://skillicons.dev/icons?i=laravel,nodejs,express,php,mysql" />
+</p>
+
+### Mobile
+
+<p>
+<img src="https://skillicons.dev/icons?i=kotlin,androidstudio" />
+</p>
+
+### Tools
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,docker,figma,postman,vscode" />
+</p>
+
+---
+
+## 📊 GitHub Analytics
+
+<div align="center">
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=Aufadholi&show_icons=true&theme=github_dark&hide_border=true"/>
+
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aufadholi&layout=compact&theme=github_dark&hide_border=true"/>
+
+</div>
+
+---
+
+## 📌 Featured Projects
+
+| Project | Description | Tech |
+|---------|-------------|------|
+| Notification Listener | Smart notification filtering for important contacts | Kotlin |
+| Image Processing Web | Queue-based image processing application | React, Express, BullMQ |
+| ERP System | Role-Based Access Control implementation | Laravel |
+
+---
+
+## 🤝 Connect with Me
+
+<p align="left">
+<a href="https://linkedin.com/in/YOUR_USERNAME">
+<img src="https://skillicons.dev/icons?i=linkedin" />
+</a>
+
+<a href="https://github.com/Aufadholi">
+<img src="https://skillicons.dev/icons?i=github" />
+</a>
+
+<a href="mailto:your@email.com">
+<img src="https://img.shields.io/badge/Email-1f2937?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+</p>
