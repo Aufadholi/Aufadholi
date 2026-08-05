@@ -140,7 +140,7 @@
 
     <!-- subtext with delayed typing animation -->
     <text x="0" y="40" font-family="Verdana, Geneva, sans-serif" font-size="18" fill="#dbeafe" opacity="0">
-      <tspan id="role">Frontend • Fullstack • Mobile App</tspan>
+      <tspan id="role">Frontend Developer • React • Next.js • Laravel • Kotlin</tspan>
       <animate attributeName="opacity" from="0" to="1" begin="4.5s" dur="0.5s" fill="freeze"/>
       <animate attributeName="x" from="-20" to="0" begin="4.5s" dur="0.6s" fill="freeze"/>
     </text>
@@ -156,4 +156,13 @@
   </g>
 
   
+
+  <g transform="translate(620,58)">
+    <rect x="0" y="0" width="320" height="100" rx="12" fill="rgba(15,23,42,0.55)" stroke="#3b82f6"/>
+    <text x="18" y="24" font-size="16" fill="#93c5fd" font-family="Verdana" font-weight="700">Tech Stack</text>
+    <text x="18" y="48" font-size="13" fill="#ffffff" font-family="Verdana">⚛ React   ▲ Next.js   🎨 Tailwind CSS</text>
+    <text x="18" y="68" font-size="13" fill="#ffffff" font-family="Verdana">🔺 Laravel   🟢 Express   🐘 PHP</text>
+    <text x="18" y="88" font-size="13" fill="#ffffff" font-family="Verdana">🟣 Kotlin   📱 Jetpack Compose   🐳 Docker</text>
+  </g>
+
 </svg>
