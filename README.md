@@ -49,17 +49,6 @@ Passionate about crafting performant, scalable, and user-friendly applications.
 <img src="https://skillicons.dev/icons?i=git,docker,figma,postman,vscode" />
 </p>
 
----
-
-## 📊 GitHub Analytics
-
-<div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Aufadholi&show_icons=true&theme=github_dark&hide_border=true"/>
-
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aufadholi&layout=compact&theme=github_dark&hide_border=true"/>
-
-</div>
 
 ---
 
