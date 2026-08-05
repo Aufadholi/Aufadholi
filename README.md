@@ -65,11 +65,11 @@ Passionate about crafting performant, scalable, and user-friendly applications.
 
 ## 📌 Featured Projects
 
-| Project | Description | Tech |
-|---------|-------------|------|
-| Notification Listener | Smart notification filtering for important contacts | Kotlin |
-| Image Processing Web | Queue-based image processing application | React, Express, BullMQ |
-| ERP System | Role-Based Access Control implementation | Laravel |
+| Project | Description | Tech | Status |
+|---------|-------------|------|--------|
+| Notification Listener | Smart notification filtering for important contacts | Kotlin | Private |
+| Image Processing Web | Queue-based image processing application | React, Express, BullMQ | Public |
+| ERP System | Role-Based Access Control implementation | Laravel | Public and Private |
 
 ---
 
