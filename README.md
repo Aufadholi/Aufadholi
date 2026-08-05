@@ -2,7 +2,7 @@
 
 # Hi there, I'm Aufa Fadholi 👋
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=24&duration=3500&pause=1200&color=3B82F6&center=true&vCenter=true&repeat=true&width=650&lines=Frontend+Developer;Building+Modern+Web+Applications;React+%7C+Next.js+%7C+Laravel;Currently+Learning+Kotlin+%26+Jetpack+Compose" />
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=24&duration=3500&pause=1200&color=3B82F6&center=true&vCenter=true&repeat=true&width=650&lines=Frontend+and+Android+Developer;Building+Modern+Web+Applications;React+%7C+Next.js+%7C+Laravel;Currently+Learning+Kotlin+%26+Jetpack+Compose" />
 
 <p>
 Computer Engineering Graduate from Dian Nuswantoro University<br/>
