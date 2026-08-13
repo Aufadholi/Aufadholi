@@ -19,7 +19,7 @@ Passionate about crafting performant, scalable, and user-friendly applications.
 - 🌱 Currently learning **Android Development with Kotlin & Jetpack Compose**
 - 💡 Interested in **UI/UX**, **Web Performance**, and **Software Architecture**
 - 📫 Reach me: **aufa.fadholi@gmail.com**
-- 🌐 Portfolio: **https://aufadholi-7hoeio15j-aufafadholi-2200s-projects.vercel.app/**
+- 🌐 Portfolio: **https://aufadholi.vercel.app/**
 
 ---
 
