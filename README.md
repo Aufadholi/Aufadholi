@@ -56,7 +56,8 @@ Passionate about crafting performant, scalable, and user-friendly applications.
 
 | Project | Description | Tech | Status |
 |---------|-------------|------|--------|
-| Notification Listener | Smart notification filtering for important contacts | Kotlin | Ongoing |
+| Notification Listener | Smart notification filtering for important contacts | Kotlin | Pending |
+| E-SaveGem | Saving mobile app for income and expense money | Kotlin | Ongoing |
 | Image Processing Web | Queue-based image processing application | React, Express, BullMQ | Finished |
 | ERP System | Role-Based Access Control implementation | Laravel | Finished |
 
