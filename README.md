@@ -63,18 +63,3 @@ Passionate about crafting performant, scalable, and user-friendly applications.
 
 ---
 
-## 🤝 Connect with Me
-
-<p align="left">
-<a href="https://linkedin.com/in/YOUR_USERNAME">
-<img src="https://skillicons.dev/icons?i=linkedin" />
-</a>
-
-<a href="https://github.com/Aufadholi">
-<img src="https://skillicons.dev/icons?i=github" />
-</a>
-
-<a href="mailto:your@email.com">
-<img src="https://img.shields.io/badge/Email-1f2937?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-</p>
